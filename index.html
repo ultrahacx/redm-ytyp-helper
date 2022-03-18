@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://kit.fontawesome.com/3eeb577416.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="./index.css">
+	<title>RedM YTYP Helper</title>
+</head>
+<body>
+	<div id="title" class="text-white font-bold text-4xl">YMAP TO YTYP Creater</div>
+	
+	<div id="workspace" class="w-full h-5/6 mt-5 flex">
+		<div id="leftSpace" class="w-2/4 h-full border-r-4 border-white">
+			<div class="grid ">
+				<div id="mloInfoText" class="font-bold text-white text-2xl ml-12 mt-6">- MLO Info</div>
+				<div id="ymapImportText" class="font-bold text-white text-2xl ml-12 mt-10">- YMAP Import</div>
+				<div id="ytypObjectText" class="font-bold text-white text-2xl ml-12 mt-10">- YTYP Objects</div>
+
+				<ul id="objectListBox" class="ml-12 mt-5 h-80 w-4/5 border-2">
+				</ul>
+
+				<button id="exportYTYPButton" class="justify-self-center mt-14 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+					Export YTYP
+				</button>
+			</div>
+		</div>
+		<div id="rightSpace" class="w-3/4 h-full">
+			<div id="worskSpaceSeperator" class="relative">
+
+			
+				<div id="mloWorkspace" class="ml-5 absolute">
+					<div id="mloCoordText" class="font-bold text-white text-2xl ml-8 mt-6">MLO World Coordinates:</div>
+					<div id="mloCoordContainer" class="grid ">
+						<div class="flex ml-20 mt-6">
+							<p class="text-white font-bold mr-2">X: </p>
+							<input type="number" id="mloXPos" class="pl-1">
+							<i id="mloXPosTipIcon" class="hidden fa-solid fa-triangle-exclamation text-red-500 ml-4 mt-1"></i>
+							<div id="mloXPosTip" class="hidden bg-red-500 text-white text-xs rounded ml-4 px-2 py-1">Invalid value entered!</div>
+						</div>
+						<div  class="flex ml-20 mt-6">
+							<p class="text-white font-bold mr-2">Y: </p>
+							<input type="number" id="mloYPos" class="pl-1">
+							<i id="mloYPosTipIcon" class="hidden fa-solid fa-triangle-exclamation text-red-500 ml-4 mt-1"></i>
+							<div id="mloYPosTip" class="hidden bg-red-500 text-white text-xs rounded ml-4 px-2 py-1">Invalid value entered!</div>
+						</div>
+						<div  class="flex ml-20 mt-6">
+							<p class="text-white font-bold mr-2">Z: </p>
+							<input type="number" id="mloZPos" class="pl-1">
+							<i id="mloZPosTipIcon" class="hidden fa-solid fa-triangle-exclamation text-red-500 ml-4 mt-1"></i>
+							<div id="mloZPosTip" class="hidden bg-red-500 text-white text-xs rounded ml-4 px-2 py-1">Invalid value entered!</div>
+						</div>
+					</div>
+
+					<div id="mloRotText" class="font-bold text-white text-2xl ml-8 mt-12">MLO World Rotation:</div>
+					<div id="mloRotContainer" class="grid ">
+						<div class="flex ml-20 mt-6">
+							<p class="text-white font-bold mr-1">W: </p>
+							<input type="number" id="mloWRot" class="pl-1">
+							<i id="mloWRotTipIcon" class="hidden fa-solid fa-triangle-exclamation text-red-500 ml-4 mt-1"></i>
+							<div id="mloWRotTip" class="hidden bg-red-500 text-white text-xs rounded ml-4 px-2 py-1">Invalid value entered!</div>
+						</div>
+						<div class="flex ml-20 mt-6">
+							<p class="text-white font-bold mr-2">X: </p>
+							<input type="number" id="mloXRot" class="pl-1">
+							<i id="mloXRotTipIcon" class="hidden fa-solid fa-triangle-exclamation text-red-500 ml-4 mt-1"></i>
+							<div id="mloXRotTip" class="hidden bg-red-500 text-white text-xs rounded ml-4 px-2 py-1">Invalid value entered!</div>
+						</div>
+						<div class="flex ml-20 mt-6">
+							<p class="text-white font-bold mr-2">Y: </p>
+							<input type="number" id="mloYRot" class="pl-1">
+							<i id="mloYRotTipIcon" class="hidden fa-solid fa-triangle-exclamation text-red-500 ml-4 mt-1"></i>
+							<div id="mloYRotTip" class="hidden bg-red-500 text-white text-xs rounded ml-4 px-2 py-1">Invalid value entered!</div>
+						</div>
+						<div class="flex ml-20 mt-6">
+							<p class="text-white font-bold mr-2">Z: </p>
+							<input type="number" id="mloZRot" class="pl-1">
+							<i id="mloZRotTipIcon" class="hidden fa-solid fa-triangle-exclamation text-red-500 ml-4 mt-1"></i>
+							<div id="mloZRotTip" class="hidden bg-red-500 text-white text-xs rounded ml-4 px-2 py-1">Invalid value entered!</div>
+						</div>
+					</div>
+
+					<button id="processMLOInfoButton" class="justify-self-center ml-10 mt-12 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+						Next
+					</button>
+				</div>
+
+				<div id="ymapImportWorkspace" class="justify-center items-center w-full h-full select-none">
+					<div id="dropArea" class="py-40 relative top-2/4 translate-y-1/2 flex justify-center items-center w-3/4 h-2/4 border-2 border-dashed rounded-xl select-none">
+						<p class="text-white font-bold">Drag-n-drop the .YMAP file here</p>
+					</div>
+					<div id="bufferAnimation" style="display: none;" class="w-2/4 h-full relative top-2/4 translate-y-1/2 flex justify-center items-center select-none">
+						<svg role="status" class="h-2/4 justify-center items-center mr-2 h-full text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+							<path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+						</svg>
+
+						<p class="mt-4 grid place-items-center text-white text-2xl font-bold">Processing file</p>
+						<p class="grid place-items-center text-white text-2xl font-bold">Please wait...</p>
+
+					</div>
+					</div>
+				</div>
+
+				<div id="ytypWorkspace" class="absolute">
+					<div id="ytypArchetypeContainer" class="flex">
+						<div id="archetypeNameText:" class="font-bold text-white text-xl ml-8 mt-6">ArchetypeName:</div>
+						<div id="archetypeName" class="font-normal text-white text-lg break-all mx-2 mt-6"></div>
+					</div>
+					
+					<div id="ytypFlagContainer" class="flex mt-6">
+							<p class="text-white font-bold text-xl ml-8 mr-2">Flags: </p>
+							<input type="number" id="flags" class="pl-1">
+					</div>
+
+
+					<div id="ytypPositionText:" class="font-bold text-white text-xl ml-8 mt-6">Position:</div>
+					<div id="ytypPositionContainer" class="grid ">
+						<div class="flex ml-20 mt-6">
+							<p class="text-white font-bold mr-2">X: </p>
+							<input type="number" id="ytypXPos" class="pl-1">
+						</div>
+						<div class="flex ml-20 mt-6">
+							<p class="text-white font-bold mr-2">Y: </p>
+							<input type="number" id="ytypYPos" class="pl-1">
+						</div>
+						<div class="flex ml-20 mt-6">
+							<p class="text-white font-bold mr-2">Z: </p>
+							<input type="number" id="ytypZPos" class="pl-1">
+						</div>
+					</div>
+
+
+					<div id="ytypRotationText:" class="font-bold text-white text-xl ml-8 mt-6">Rotation:</div>
+					<div id="ytypRotationContainer" class="grid ">
+						<div class="flex ml-20 mt-6">
+							<p class="text-white font-bold mr-2">W: </p>
+							<input type="number" id="ytypWRot" class="pl-1">
+						</div>
+						<div class="flex ml-20 mt-6">
+							<p class="text-white font-bold mr-2">X: </p>
+							<input type="number" id="ytypXRot" class="pl-1">
+						</div>
+						<div class="flex ml-20 mt-6">
+							<p class="text-white font-bold mr-2">Y: </p>
+							<input type="number" id="ytypYRot" class="pl-1">
+						</div>
+						<div class="flex ml-20 mt-6">
+							<p class="text-white font-bold mr-2">Z: </p>
+							<input type="number" id="ytypZRot" class="pl-1">
+						</div>
+					</div>
+
+					<!-- <button id="processMLOInfoButton" class="justify-self-center ml-10 mt-12 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+						Re-set MLO Info
+					</button>
+
+					<button id="processMLOInfoButton" class="justify-self-center ml-10 mt-12 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+						Re-import YMAP
+					</button> -->
+
+				</div>
+
+				<div id="ytypResultArea" class="absolute w-full h-full ">
+					<textarea id="ytypResult" spellcheck="false" class="text-md w-2/4 h-5/6 resize-none p-2 ml-8 mt-6">
+					</textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

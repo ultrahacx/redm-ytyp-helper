@@ -1,0 +1,26 @@
+{ 
+  "build": {
+    "appId": "redm.ytyp.helper",
+    "buildVersion": "1.0.0"
+  },
+  "postinstall": "electron-builder install-app-deps",
+  "name": "redm-ytyp-helper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-packager . redm-ytyp-helper --platform=win32 --asar --icon=assets/icon.ico"
+  },
+  "author": "ULTRAHACX",
+  "license": "",
+  "devDependencies": {
+    "electron": "^17.1.2",
+    "electron-reload": "^2.0.0-alpha.1"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "quaternion": "^1.2.1",
+    "xml-js": "^1.6.11"
+  }
+}
